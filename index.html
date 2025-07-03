@@ -1,0 +1,26 @@
+<!-- index.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Face Attendance</title>
+    <link rel="stylesheet" href="/static/css/style.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Face Attendance System</h1>
+        <a href="/logout">Logout</a>
+        <button onclick="capture()">Mark Attendance</button>
+        <p id="result"></p>
+    </div>
+
+    <script>
+        function capture() {
+            fetch("/capture")
+                .then(response => response.text())
+                .then(text => document.getElementById("result").innerText = text)
+                .catch(err => console.error(err));
+        }
+    </script>
+</body>
+</html>
